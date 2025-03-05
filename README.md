@@ -1,0 +1,2 @@
+# markitdown_GUI
+基于微软MarkItDown工具开发的图形界面应用程序，用于将各种文档格式转换为Markdown格式。
