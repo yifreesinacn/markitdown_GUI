@@ -35,3 +35,6 @@
   - pdfminer.six
   - Pillow
   - pywin32
+##  文件下载地址
+  [MarkItDown_GUI_1.0.zip](https://github.com/yihufree/markitdown_GUI/blob/README.md/MarkItDown_GUI_1.0.zip)
+
