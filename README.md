@@ -36,5 +36,5 @@
   - Pillow
   - pywin32
 ##  文件下载地址
-  [MarkItDown_GUI_1.0.zip](MarkItDown_GUI_1.0.zip)
-
+  - 1.本站：[MarkItDown_GUI_1.0.zip](https://github.com/yihufree/markitdown_GUI/releases/download/MarkItDown_GUI_v1.0/MarkItDown_GUI_1.0.zip)
+  - 2.网盘：[百度网盘](https://pan.baidu.com/s/1k9tRLHA2pimR9D6PkXqeag) 提取码: midg 复制网址到浏览器打开。
