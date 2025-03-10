@@ -1,7 +1,6 @@
 <<<<<<< HEAD
-# MarkItDown GUI 文档转换工具
+# MarkItDown GUI 文档转换工具(图形界面程序)
 =======
-# markitdown_GUI 图形界面应用程序
 
 基于微软MarkItDown工具开发的图形界面应用程序，用于将各种文档格式转换为Markdown格式。
 ## 功能特点
@@ -73,10 +72,8 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
 1. 下载发布版本
    
    (1)从Release页面下载最新的exe文件
-   
-   (2)从网盘下载  链接:
-   
-   https://pan.baidu.com/s/1k9tRLHA2pimR9D6PkXqeag  （midg）
+   (2)从网盘下载
+    
 2. 解压到任意目录
 3. 运行MarkItDown_GUI.exe
 
@@ -97,9 +94,9 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
   - Pillow
   - pywin32
 ##  文件下载地址
-  - 1.本站：[MarkItDown_GUI_1.0.zip](https://github.com/yihufree/markitdown_GUI/releases/download/MarkItDown_GUI_v1.0/MarkItDown_GUI_1.0.zip)
+  - 1.本站：[MarkItDown_GUI_V0.1.0a1.zip](https://github.com/yihufree/markitdown_GUI/releases/download/MarkItDown_GUI_v0.1.0a1/MarkItDown_GUI_v0.1.0a1.zip))
   - 2.网盘：[百度网盘](https://pan.baidu.com/s/1k9tRLHA2pimR9D6PkXqeag) 提取码: midg 。
 ##  更新
-  - 
-  - v1.0    2025年3月5日第一次发布
+  - v0.1.0a1    2025年3月11日根据微软发布的新版本进行修改，微软版本为发0.1.0a1。其他无大的变动。
+  - v1.0    2025年3月5日第一次发布第一个版本，版本号为1.0 （当时微软在github.com发布的markitdown版本为v0.0.2a1，在pypi发布的版本好像是v0.0.1a5）
 >>>>>>> 240727e928bd969ba73331fb428c70d7d074906a
