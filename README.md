@@ -39,6 +39,6 @@
 ##  文件下载地址
   - 1.本站：[MarkItDown_GUI_1.0.zip](https://github.com/yihufree/markitdown_GUI/releases/download/MarkItDown_GUI_v1.0/MarkItDown_GUI_1.0.zip)
   - 2.网盘：[百度网盘](https://pan.baidu.com/s/1k9tRLHA2pimR9D6PkXqeag) 提取码: midg 。
-##  更新日志
+##  更新
   - 
-  - v1.0  2025年3月5日第一次发布
+  - v1.0    2025年3月5日第一次发布
