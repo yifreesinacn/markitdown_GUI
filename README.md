@@ -97,6 +97,7 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
   - 1.本站：[MarkItDown_GUI_v0.1.0](https://github.com/yihufree/markitdown_GUI/releases/download/v0.1.0_250323/MarkItDown_GUI_v0.1.0_250323.zip)
   - 2.网盘：[百度网盘](https://pan.baidu.com/s/1ZCoM23CqtHikqPcck5Jh5Q )提取码: 1234 。
 ##  更新
+  - vv0.1.0_250323 1.修正了以前没有发现的问题，如doc文档不能转换等。2.对于有图片的doc文档，能在目录文件夹内建立图片目录，将原文档中图片导出。3.在配置框内对支持的文件类型进行说明。4.修改了一些细节
   - v0.1.0a1    2025年3月11日根据微软发布的新版本进行修改，微软版本为发0.1.0a1。其他无大的变动。目前存在的问题：一是部分大文件转换会失败；二是部分图形图像方面还存在问题，打包时有提示；三是后续考虑增加英文界面，方便更多的人使用。
   - v1.0    2025年3月5日第一次发布第一个版本，版本号为1.0 （当时微软在github.com发布的markitdown版本为v0.0.2a1，在pypi发布的版本好像是v0.0.1a5）
 >>>>>>> 240727e928bd969ba73331fb428c70d7d074906a
