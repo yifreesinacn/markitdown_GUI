@@ -94,8 +94,8 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
   - Pillow
   - pywin32
 ##  文件下载地址
-  - 1.本站：[MarkItDown_GUI_V0.1.0a1.zip](https://github.com/yihufree/markitdown_GUI/releases/download/MarkItDown_GUI_v0.1.0a1/MarkItDown_GUI_v0.1.0a1.zip))
-  - 2.网盘：[百度网盘](https://pan.baidu.com/s/1k9tRLHA2pimR9D6PkXqeag) 提取码: midg 。
+  - 1.本站：[MarkItDown_GUI_v0.1.0](https://github.com/yihufree/markitdown_GUI/releases/download/v0.1.0_250323/MarkItDown_GUI_v0.1.0_250323.zip)
+  - 2.网盘：[百度网盘](https://pan.baidu.com/s/1ZCoM23CqtHikqPcck5Jh5Q )提取码: 1234 。
 ##  更新
   - v0.1.0a1    2025年3月11日根据微软发布的新版本进行修改，微软版本为发0.1.0a1。其他无大的变动。目前存在的问题：一是部分大文件转换会失败；二是部分图形图像方面还存在问题，打包时有提示；三是后续考虑增加英文界面，方便更多的人使用。
   - v1.0    2025年3月5日第一次发布第一个版本，版本号为1.0 （当时微软在github.com发布的markitdown版本为v0.0.2a1，在pypi发布的版本好像是v0.0.1a5）
