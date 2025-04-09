@@ -1,10 +1,10 @@
 <<<<<<< HEAD
 
-# MarkItDown GUI 文档转换工具(图形界面程序)
+# AnyToMarkdown 文档转换工具
 
 =======
 
-基于微软MarkItDown工具开发的图形界面应用程序，用于将各种文档格式转换为Markdown格式。
+基于微软MarkItDown工具库以及其他部分相关的文档转换工具库，测试开发的图形界面应用程序，用于将各种文档格式转换为Markdown格式。
 
 ## 功能特点
 
