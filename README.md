@@ -14,7 +14,7 @@
 
 ## 项目简介
 
-MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它封装了微软的MarkItDown命令行工具，提供了友好的用户界面，使得文档转换变得简单易用。
+MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它封装了微软的MarkItDown命令行工具以及其他一些工具库，提供了友好的用户界面，使得文档转换变得简单易用。
 
 ## 主要功能
 
@@ -62,7 +62,7 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
 ### 运行环境
 
 - Windows 10或更高版本
-- Python 3.8或更高版本
+- Python 3.10或更高版本
   <<<<<<< HEAD
 - 4GB以上内存
 - 500MB可用磁盘空间
@@ -76,7 +76,7 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
 
 3. 解压到任意目录
 
-4. 运行MarkItDown_GUI.exe
+4. 运行AnyToMarkdown***.exe文件
 
 ### 详细文档
 
