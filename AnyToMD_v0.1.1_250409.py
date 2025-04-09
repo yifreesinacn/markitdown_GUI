@@ -17,7 +17,7 @@ import re
 class MarkItDownApp:
     def __init__(self, root):
         self.root = root
-        self.root.title(f'MarkItDown GUI 文档转换工具 v{markitdown.__version__} 版 【yifree 2025.03.25】')  # 'MarkItDown 文档转换工具 v0.1.0a1版 转为格式化数据
+        self.root.title(f'AnyToMarkDown 文档转换工具 v{markitdown.__version__} 版 【yifree 2025.04.09】')  
         self.root.iconbitmap(default=self.resource_path('icon.ico') if hasattr(sys, '_MEIPASS') else None)
         
         # 设置主题和样式
@@ -25,16 +25,16 @@ class MarkItDownApp:
         
         # 设置窗口大小和位置
         window_width = 1000
-        window_height = 700
+        window_height = 640
         screen_width = root.winfo_screenwidth()
         screen_height = root.winfo_screenheight()
         x = (screen_width - window_width) // 2
-        y = (screen_height - window_height) // 2
+        y = (screen_height - window_height) // 4
         self.root.geometry(f'{window_width}x{window_height}+{x}+{y}')
-        self.root.minsize(800, 600)
+        self.root.minsize(800, 540)
         
         # 创建主框架
-        self.main_frame = ttk.Frame(self.root, padding="20")
+        self.main_frame = ttk.Frame(self.root, padding="10") 
         self.main_frame.pack(fill=tk.BOTH, expand=True)
         
         # 创建标题和说明
@@ -115,48 +115,48 @@ class MarkItDownApp:
     def create_header(self):
         """创建应用程序标题和说明"""
         header_frame = ttk.Frame(self.main_frame)
-        header_frame.pack(fill=tk.X, pady=(0, 20))
+        header_frame.pack(fill=tk.X, pady=(0, 5))
         
         # 标题 修改每项为一行，删除具体版本号
         title_label = ttk.Label(
             header_frame, 
-            text='MarkItDown GUI 文档转换工具',  # 原为'MarkItDown 文档转换工具 v0.1.0a1'
+            text='AnyToMarkDown 文档转换工具',  
             style='Header.TLabel'
-            # 如需要，上可改为：f'MarkItDown 文档转换工具 v{markitdown.__version__}'
+            # 如需要，上可改为：f'AnyToMarkDown 文档转换工具 v{markitdown.__version__}'
         )
-        title_label.pack(anchor=tk.W)
+        title_label.pack(anchor=tk.N, pady=(0, 0))
         
         # 说明
         description = "将各种文档格式转换为 Markdown 格式，支持 PDF、PowerPoint、Word、Excel 等多种格式。"
         desc_label = ttk.Label(header_frame, text=description, style='Subheader.TLabel')
-        desc_label.pack(anchor=tk.W, pady=(5, 0))
+        desc_label.pack(anchor=tk.N, pady=(5, 5))
 
     def create_notebook(self):
         """创建选项卡界面"""
         self.notebook = ttk.Notebook(self.main_frame)
-        self.notebook.pack(fill=tk.BOTH, expand=True)
+        self.notebook.pack(fill=tk.X, anchor=tk.N, expand=False, pady=(5, 0))
         
         # 设置选项卡字体样式
         style = ttk.Style()
         style.configure('Tab.TLabel', font=('微软雅黑', 20))  # 增加选项卡字体大小
         
         # 单文件转换选项卡
-        self.single_frame = ttk.Frame(self.notebook, padding=10)
+        self.single_frame = ttk.Frame(self.notebook, padding=5)
         self.notebook.add(self.single_frame, text='单文件转换')
         self.create_single_file_tab()
         
         # 批量转换选项卡
-        self.batch_frame = ttk.Frame(self.notebook, padding=10)
+        self.batch_frame = ttk.Frame(self.notebook, padding=5)
         self.notebook.add(self.batch_frame, text='批量转换')
         self.create_batch_file_tab()
         
         # 设置选项卡
-        self.settings_frame = ttk.Frame(self.notebook, padding=10)
+        self.settings_frame = ttk.Frame(self.notebook, padding=5)
         self.notebook.add(self.settings_frame, text='设置')
         self.create_settings_tab()
         
         # 关于选项卡
-        self.about_frame = ttk.Frame(self.notebook, padding=10)
+        self.about_frame = ttk.Frame(self.notebook, padding=5)
         self.notebook.add(self.about_frame, text='关于')
         self.create_about_tab()
 
@@ -168,11 +168,11 @@ class MarkItDownApp:
         """创建单文件转换选项卡内容"""
         # 左侧面板 - 文件选择和转换选项
         left_panel = ttk.Frame(self.single_frame)
-        left_panel.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=(0, 10))
+        left_panel.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=(0, 10), pady=(0, 0))
         
         # 文件选择区域
         file_frame = ttk.LabelFrame(left_panel, text='文件选择', padding=10)
-        file_frame.pack(fill=tk.X, pady=(0, 10))
+        file_frame.pack(fill=tk.X, pady=(10, 30))
         
         # 输入文件
         input_frame = ttk.Frame(file_frame)
@@ -249,22 +249,22 @@ class MarkItDownApp:
         
         # 右侧面板 - 预览区域
         right_panel = ttk.Frame(self.single_frame)
-        right_panel.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+        right_panel.pack(side=tk.RIGHT, anchor=tk.N, fill=tk.BOTH, expand=True, pady=(10, 10))
         
         preview_frame = ttk.LabelFrame(right_panel, text='Markdown 预览', padding=10)
-        preview_frame.pack(fill=tk.BOTH, expand=True)
+        preview_frame.pack(fill=tk.X, side=tk.TOP, anchor=tk.N, expand=True)
         
         self.preview_text = scrolledtext.ScrolledText(
             preview_frame, 
             wrap=tk.WORD, 
-            height=11,  # 20250325新增，可能系统默认为原为12
+            height=18,  # 20250325新增，可能系统默认为原为12
             font=('Consolas', 10)
         )
-        self.preview_text.pack(fill=tk.BOTH, expand=True)
+        self.preview_text.pack(fill=tk.X, expand=True)
         
         # 预览控制按钮
         preview_controls = ttk.Frame(preview_frame)
-        preview_controls.pack(fill=tk.X, pady=(10, 0))
+        preview_controls.pack(fill=tk.X, side=tk.TOP, pady=(10, 0))
         
         self.copy_btn = ttk.Button(
             preview_controls, 
@@ -282,158 +282,171 @@ class MarkItDownApp:
 
     def create_batch_file_tab(self):
         """创建批量转换选项卡内容"""
-        # 创建一个容器框架，使用Canvas和Scrollbar实现滚动
-        container = ttk.Frame(self.batch_frame)
-        container.pack(fill=tk.BOTH, expand=True)
-        
-        # 创建Canvas
-        canvas = tk.Canvas(container)
-        scrollbar = ttk.Scrollbar(container, orient="vertical", command=canvas.yview)
-        
-        # 创建可滚动的框架
-        scrollable_frame = ttk.Frame(canvas)
-        scrollable_frame.bind(
-            "<Configure>",
-            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
-        )
-        
-        # 在Canvas中创建窗口
-        canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
-        canvas.configure(yscrollcommand=scrollbar.set)
-        
+        # 左侧面板 - 文件列表和操作
+        left_panel = ttk.Frame(self.batch_frame)
+        left_panel.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=(0, 10))
+    
         # 文件列表区域
-        files_frame = ttk.LabelFrame(scrollable_frame, text='文件列表', padding=10)
+        files_frame = ttk.LabelFrame(left_panel, text='计划转换文件列表', padding=10)
         files_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 10))
-        
+    
         # 文件列表
         self.files_listbox = tk.Listbox(
             files_frame, 
             selectmode=tk.EXTENDED, 
             font=('微软雅黑', 10),
-            height=8  # 设置一个固定高度
+            height=10
         )
         self.files_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        
+    
         # 滚动条
         scrollbar = ttk.Scrollbar(files_frame, orient=tk.VERTICAL, command=self.files_listbox.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.files_listbox.config(yscrollcommand=scrollbar.set)
-        
+    
         # 文件操作按钮
-        file_buttons_frame = ttk.Frame(scrollable_frame)
-        file_buttons_frame.pack(fill=tk.X, pady=(0, 10))
-        
+        file_buttons_frame = ttk.Frame(left_panel)
+        file_buttons_frame.pack(fill=tk.X, pady=(0, 5))
+    
         add_files_btn = ttk.Button(
             file_buttons_frame, 
             text='添加文件', 
             command=self.add_batch_files
         )
         add_files_btn.pack(side=tk.LEFT, padx=(0, 5))
-        
+    
         add_folder_btn = ttk.Button(
             file_buttons_frame, 
             text='添加文件夹', 
             command=self.add_folder_files
         )
         add_folder_btn.pack(side=tk.LEFT, padx=(0, 5))
-        
+    
         remove_btn = ttk.Button(
             file_buttons_frame, 
             text='移除选中', 
             command=self.remove_selected_files
         )
         remove_btn.pack(side=tk.LEFT, padx=(0, 5))
-        
+    
         clear_btn = ttk.Button(
             file_buttons_frame, 
             text='清空列表', 
             command=self.clear_file_list
         )
         clear_btn.pack(side=tk.LEFT)
-        
-        # 输出设置
-        output_frame = ttk.LabelFrame(scrollable_frame, text='输出设置', padding=10)
-        output_frame.pack(fill=tk.X, pady=(0, 10))
-        
-        batch_output_frame = ttk.Frame(output_frame)
-        batch_output_frame.pack(fill=tk.X, pady=5)
-        
-        ttk.Label(batch_output_frame, text='输出文件夹:').pack(side=tk.LEFT)
-        
-        self.batch_output_var = tk.StringVar()
-        batch_output_entry = ttk.Entry(batch_output_frame, textvariable=self.batch_output_var, width=40)
-        batch_output_entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=5)
-        
-        batch_browse_btn = ttk.Button(
-            batch_output_frame, 
-            text='浏览...', 
-            command=self.select_batch_output_folder
+    
+        # 右侧面板 - 分上下两部分
+        right_panel = ttk.Frame(self.batch_frame)
+        right_panel.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=(0, 0))
+    
+        # 上部框架：文件列表和状态信息
+        list_frame = ttk.LabelFrame(right_panel, text='转换不成功文件列表', padding=5)
+        list_frame.pack(fill=tk.BOTH, anchor=tk.N, expand=True)
+    
+        # 状态标签和滚动列表
+        status_frame = ttk.Frame(list_frame)
+        status_frame.pack(fill=tk.X, anchor=tk.N, pady=(0, 5))
+    
+        # 待转换文件列表
+        pending_frame = ttk.Frame(list_frame)
+        pending_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 5))
+    
+        self.pending_files_listbox = tk.Listbox(
+            pending_frame, 
+            height=5,
+            font=('微软雅黑', 9),
+            selectmode=tk.SINGLE
         )
-        batch_browse_btn.pack(side=tk.LEFT)
-        
-        # 批量转换选项
-        batch_options_frame = ttk.Frame(output_frame)
-        batch_options_frame.pack(fill=tk.X, pady=5)
-        
-        # 保留原始格式选项
+        scrollbar = ttk.Scrollbar(pending_frame, orient=tk.VERTICAL, command=self.pending_files_listbox.yview)
+        self.pending_files_listbox.config(yscrollcommand=scrollbar.set)
+    
+        self.pending_files_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+    
+        # 下部框架：输出设置
+        output_settings_frame = ttk.LabelFrame(right_panel, text='输出设置', padding=5)
+        output_settings_frame.pack(fill=tk.X, pady=5)
+    
+        # 输出路径设置
+        output_path_frame = ttk.Frame(output_settings_frame)
+        output_path_frame.pack(fill=tk.X, pady=0)
+    
+        # 标签放在上方
+        ttk.Label(output_path_frame, text='输出文件夹:').pack(anchor=tk.W, pady=(0, 5))
+    
+        # 输入框和浏览按钮的容器
+        path_input_frame = ttk.Frame(output_path_frame)
+        path_input_frame.pack(fill=tk.X)
+    
+        self.batch_output_var = tk.StringVar()
+        output_entry = ttk.Entry(path_input_frame, textvariable=self.batch_output_var)
+        output_entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 5))
+    
+        ttk.Button(
+            path_input_frame,
+            text='浏览...',
+            command=self.select_batch_output_folder
+        ).pack(side=tk.RIGHT)
+    
+        # 转换选项
+        options_frame = ttk.Frame(output_settings_frame)
+        options_frame.pack(fill=tk.X, pady=(5, 0), anchor=tk.W)
+    
+        # 第一行：前两个选项
+        first_row = ttk.Frame(options_frame)
+        first_row.pack(fill=tk.X, pady=2, anchor=tk.W)
+    
         self.batch_preserve_format_var = tk.BooleanVar(value=True)
-        batch_preserve_format_cb = ttk.Checkbutton(
-            batch_options_frame, 
+        ttk.Checkbutton(
+            first_row, 
             text='尽可能保留原始格式', 
             variable=self.batch_preserve_format_var
-        )
-        batch_preserve_format_cb.pack(side=tk.LEFT, padx=(0, 10))
-        
-        # 提取图片选项
+        ).pack(side=tk.LEFT, padx=10)
+    
         self.batch_extract_images_var = tk.BooleanVar(value=True)
-        batch_extract_images_cb = ttk.Checkbutton(
-            batch_options_frame, 
+        ttk.Checkbutton(
+            first_row, 
             text='提取并保存图片', 
             variable=self.batch_extract_images_var
-        )
-        batch_extract_images_cb.pack(side=tk.LEFT)
-        
-        # 批量转换按钮和进度条
-        batch_action_frame = ttk.Frame(scrollable_frame)
-        batch_action_frame.pack(fill=tk.X, pady=10)
-        
-        self.batch_progress = ttk.Progressbar(batch_action_frame, mode='determinate')
-        self.batch_progress.pack(fill=tk.X, pady=(0, 10))
-        
+        ).pack(side=tk.LEFT, padx=10)
+    
+        # 第二行：第三个选项
+        second_row = ttk.Frame(options_frame)
+        second_row.pack(fill=tk.X, pady=2, anchor=tk.W)
+    
+        self.batch_auto_open_folder_var = tk.BooleanVar(value=True)
+        ttk.Checkbutton(
+            second_row,
+            text="转换完成后打开输出文件夹", 
+            variable=self.batch_auto_open_folder_var
+        ).pack(side=tk.LEFT, padx=10)
+    
+        # 第四部分：进度条和按钮
+        batch_action_frame = ttk.Frame(right_panel)
+        batch_action_frame.pack(fill=tk.X, pady=(5, 5))  # pady=(10, 0), side=tk.BOTTOM
+    
+        # 创建状态和进度条的容器
+        status_progress_frame = ttk.Frame(batch_action_frame)
+        status_progress_frame.pack(fill=tk.X, pady=(0, 10))
+    
+        # 状态标签放在左侧
         self.batch_status_var = tk.StringVar(value='准备就绪')
-        batch_status_label = ttk.Label(batch_action_frame, textvariable=self.batch_status_var)
-        batch_status_label.pack(side=tk.LEFT)
-        
+        batch_status_label = ttk.Label(status_progress_frame, textvariable=self.batch_status_var)
+        batch_status_label.pack(side=tk.LEFT, padx=(0, 10))
+    
+        # 进度条占据剩余空间
+        self.batch_progress = ttk.Progressbar(status_progress_frame, mode='determinate')
+        self.batch_progress.pack(side=tk.LEFT, fill=tk.X, expand=True)
+    
+        # 转换按钮保持右对齐
         self.batch_convert_btn = ttk.Button(
             batch_action_frame, 
-            text='开始批量转换', 
+            text='开 始 批 量 转 换', 
             command=self.start_batch_conversion,
             style='Primary.TButton'
         )
-        self.batch_convert_btn.pack(side=tk.RIGHT)
-        
-        # 最后设置滚动条和Canvas的布局
-        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        
-        # 绑定鼠标滚轮事件
-        def _on_mousewheel(event):
-            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
-        canvas.bind_all("<MouseWheel>", _on_mousewheel)
-        
-        # 添加自动打开文件夹选项
-        # 创建一个新的框架容器
-        grid_frame = ttk.Frame(batch_options_frame)
-        grid_frame.pack(fill=tk.X, padx=5, pady=5)  # 使用pack
-
-        # 然后在新框架中使用grid
-        self.batch_auto_open_folder_var = tk.BooleanVar(value=True)
-        batch_auto_open_folder_check = ttk.Checkbutton(
-            grid_frame,
-            text="转换完成后打开输出文件夹", 
-            variable=self.batch_auto_open_folder_var
-        )
-        batch_auto_open_folder_check.grid(column=0, row=0, sticky=tk.W)  # 使用grid
+        self.batch_convert_btn.pack(side=tk.RIGHT,ipadx=10)
 
     def create_settings_tab(self):
         """创建设置选项卡内容"""
@@ -523,15 +536,15 @@ class MarkItDownApp:
         # 应用标题
         app_title = ttk.Label(
             about_content, 
-            text=f'MarkItDown_GUI 版本 v{markitdown.__version__}', 
-            font=('微软雅黑', 18, 'bold')
+            text=f'软件版本 v{markitdown.__version__}', 
+            font=('微软雅黑', 14, 'bold')
         )
         app_title.pack(pady=(0, 10))
         
         # 版本信息
         version_label = ttk.Label(
             about_content, 
-            text='2025.03.25 HNZZ', # f'2025.03.25 v{markitdown.__version__}'
+            text='2025.04.09 HNZZ', # f'2025.03.25 v{markitdown.__version__}'
             font=('微软雅黑', 10)
         )
         version_label.pack()
@@ -542,8 +555,7 @@ class MarkItDownApp:
         
         # 应用说明
         description = (
-            "MarkItDown 文档转换工具是基于微软的 MarkItDown 库开发的图形界面应用，"
-            "用于将各种文档格式转换为 Markdown 格式。\n\n"
+            "AnyToMarkDown 工具用于将各种文档格式转换为 Markdown 格式。\n\n"
             "支持的文件格式包括：\n"
             "• PDF\n"
             "• PowerPoint\n"
@@ -554,7 +566,7 @@ class MarkItDownApp:
             "• HTML\n"
             "• 文本格式 (CSV, JSON, XML)\n"
             "• ZIP 文件 (遍历内容)\n\n"
-            "本应用基于 Python 和 Tkinter 开发，使用了微软的 MarkItDown 库。"
+            "本应用基于 Python 和 Tkinter 开发，使用了微软的 MarkItDown 库以及其他多个与文档转换相关的库。"
         )
         
         desc_text = scrolledtext.ScrolledText(
@@ -598,8 +610,8 @@ class MarkItDownApp:
 
     def create_statusbar(self):
         """创建状态栏"""
-        self.statusbar = ttk.Frame(self.root, relief=tk.SUNKEN, padding=(10, 5))
-        self.statusbar.pack(side=tk.BOTTOM, fill=tk.X)
+        self.statusbar = ttk.Frame(self.root, relief=tk.SUNKEN, padding=(20, 5))
+        self.statusbar.pack(side=tk.BOTTOM, fill=tk.X, pady=(0, 0))
         
         self.status_var = tk.StringVar(value='就绪')
         status_label = ttk.Label(self.statusbar, textvariable=self.status_var)
@@ -1932,6 +1944,9 @@ class MarkItDownApp:
             self.batch_convert_btn.config(state=tk.DISABLED)
             self.progress['value'] = 0
             self.status_var.set('准备批量转换...')
+            
+            # 清空不成功文件列表
+            self.pending_files_listbox.delete(0, tk.END)
             
             # 获取输入文件和输出目录
             input_files = self.batch_files
