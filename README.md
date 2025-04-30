@@ -106,8 +106,8 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
 
 - 如果本应用基于的一些库没有大的变动，转换工具涉及的图片的插入问题没有得到彻底解决，这个程序将也不会再做大的更新，尤其是最近发现了一个非常好的项目和已经完成的成品应用非常不错，推荐大家可以去关注和使用。
 - 
-  【地址】  [MinerU] (https://mineru.net/)
-  【项目】  [MinerU] (https://github.com/opendatalab/MinerU)
+  【地址】  [MinerU](https://mineru.net/)
+  【项目】  [MinerU](https://github.com/opendatalab/MinerU)
  
 - v0.1.1_250325 1.修正了一些小问题；2.有图片的doc、pdf文档，在目录内新建images文件夹，导出并链接原文档中图片，请勿删除；3.修改了一些细节。
 
