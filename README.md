@@ -104,6 +104,12 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
   
   ## 更新
 
+- 上传了打包脚本文件AnyToMD_build.py，有兴趣的朋友可以放在同一目录，使用“ python AnyToMD_build.py "测试。我也只是学着玩，所以没有建立专门的依赖文件，直接使用打包文件打包，里面有具体的依赖名称。使用前先把微软的markitdown项目运行一下（https://github.com/microsoft/markitdown  可以下载到本地，使用pip install 'markitdown[all]'，不行的使用pip install markitdown[all），然后再打包。
+- 如果本应用基于的一些库没有大的变动，转换工具涉及的图片的插入问题没有得到彻底解决，这个程序将也不会再做大的更新，尤其是最近发现了一个非常好的项目和已经完成的成品应用非常不错，推荐大家可以去关注和使用。项目为MinerU，由OpenDataLab（上海人工智能实验室的大模型数据基座团队打造的数据开放平台）开发。
+- 
+  【地址】  [MinerU](https://mineru.net/)
+  【项目】  [MinerU](https://github.com/opendatalab/MinerU)
+ 
 - v0.1.1_250325 1.修正了一些小问题；2.有图片的doc、pdf文档，在目录内新建images文件夹，导出并链接原文档中图片，请勿删除；3.修改了一些细节。
 
 - v0.1.0_250323 1.修正了以前没有发现的问题，如doc文档不能转换等。2.对于有图片的doc文档，能在目录文件夹内建立图片目录，将原文档中图片导出。3.在配置框内对支持的文件类型进行说明。4.修改了一些细节
