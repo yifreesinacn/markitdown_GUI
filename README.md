@@ -105,7 +105,7 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
   ## 更新
 
 - 近期发现使用原来的脚本和主程序打包后文件为361M，发现是markitdown及相关依赖中加入了大量额外的依赖模块，主要是：
-  (1)深度学习框架 ：6月13日版本包含了torch、transformers、huggingface_hub等大型机器学习库
+  (1)深度学习框架 ：包含了torch、transformers、huggingface_hub等大型机器学习库
   (2)科学计算库 ：包含了更完整的numpy、scipy、pandas、matplotlib等科学计算生态
   (3)图像处理库 ：包含了更多的PIL、opencv相关模块
   (4)云服务依赖 ：包含了azure、google.auth等云服务相关库
