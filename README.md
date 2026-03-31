@@ -100,6 +100,7 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
   ## 文件下载地址
 
 - 本站：[MarkItDown_GUI_v0.1.6](https://github.com/yihufree/AnyToMarkdown/releases/download/v0.1.6_260330/AnyToMD_v0.1.6_260330.exe)
+  V0.1.6源码还没有整理好，先下载EXE程序试用，不要下载源码。
   
   ## 更新
 
