@@ -1,20 +1,8 @@
 <<<<<<< HEAD
 
-# AnyToMarkdown （AnyToMD) 文档转换工具
-
-=======
-
-基于微软MarkItDown工具库以及其他部分相关的文档转换工具库，测试开发的图形界面应用程序，用于将各种文档格式转换为Markdown格式。
-
-## 功能特点
-
-> > > > > > > 240727e928bd969ba73331fb428c70d7d074906a
-
-基于微软MarkItDown工具开发的图形界面应用程序，提供便捷的文档格式转换功能。
-
 ## 项目简介
 
-AnyToMarkdown是一个基于Python和Tkinter开发的图形界面工具，它封装了微软的MarkItDown命令行工具以及其他一些工具库，提供了友好的用户界面，使得文档转换变得简单易用。
+AnyToMarkdown（AnyToMD）是一个基于Python和Tkinter开发的图形界面工具，它封装了微软的MarkItDown命令行工具以及其他一些工具库，提供了友好的用户界面，使得文档转换变得简单易用。
 
 ## 主要功能
 
@@ -40,7 +28,7 @@ AnyToMarkdown是一个基于Python和Tkinter开发的图形界面工具，它封
   - PowerPoint文档 (.pptx)
   - 图片文件 (.png, .jpg, .jpeg)
   - 音频文件 (.mp3, .wav)
-  - HTML文件 (.html)
+  - HTML文件 (.html, MHTML, HTM)
   - 文本文件 (.csv, .json, .xml)
   - 压缩文件 (.zip)
 
@@ -71,9 +59,9 @@ AnyToMarkdown是一个基于Python和Tkinter开发的图形界面工具，它封
 
 1. 下载发布版本
    
-  从Release页面下载最新的exe文件
+  从Release页面下载最新的exe文件(或压缩包)
   
-3. 解压到任意目录
+3. （压缩包）解压到任意目录
 
 4. 运行AnyToMarkdown***.exe文件
 
@@ -101,7 +89,7 @@ AnyToMarkdown是一个基于Python和Tkinter开发的图形界面工具，它封
 
 - 本站：[ AnyToMD_v0.1.6 ](https://github.com/yihufree/AnyToMarkdown/releases/download/v0.1.6_260330/AnyToMD_v0.1.6_260330.exe)
 
-  V0.1.6版本的源码还没有整理好，先下载EXE程序试用，不要下载源码。
+  目前V0.1.6版本的源码还没有完全整理好，先下载EXE程序试用，暂时不要下载源码。
   
   ## 更新
 
@@ -121,11 +109,8 @@ AnyToMarkdown是一个基于Python和Tkinter开发的图形界面工具，它封
   (4)云服务依赖 ：包含了azure、google.auth等云服务相关库
   因对以上内容不熟悉，请大家自行处理。（20250616）
 - 上传了打包脚本文件AnyToMD_build.py，有兴趣的朋友可以放在同一目录，使用“ python AnyToMD_build.py "测试。我也只是学着玩，所以没有建立专门的依赖文件，直接使用打包文件打包，里面有具体的依赖名称。使用前先把微软的markitdown项目运行一下（https://github.com/microsoft/markitdown  可以下载到本地，使用pip install 'markitdown[all]'，不行的使用pip install markitdown[all），然后再打包。
-- 如果本应用基于的一些库没有大的变动，转换工具涉及的图片的插入问题没有得到彻底解决，这个程序近期可能也不会做大的更新，尤其是最近发现了一个非常好的项目和已经完成的成品应用非常不错，推荐大家可以去关注和使用。项目为MinerU，由OpenDataLab（上海人工智能实验室的大模型数据基座团队打造的数据开放平台）开发。
-- 
-  【地址】  [MinerU](https://mineru.net/)
-  【项目】  [MinerU](https://github.com/opendatalab/MinerU)
- 
+- 如果本应用基于的一些库没有大的变动，转换工具涉及的图片的插入问题没有得到彻底解决，这个程序近期可能也不会做大的更新
+-  
 - v0.1.1_250325 1.修正了一些小问题；2.有图片的doc、pdf文档，在目录内新建images文件夹，导出并链接原文档中图片，请勿删除；3.修改了一些细节。
 
 - v0.1.0_250323 1.修正了以前没有发现的问题，如doc文档不能转换等。2.对于有图片的doc文档，能在目录文件夹内建立图片目录，将原文档中图片导出。3.在配置框内对支持的文件类型进行说明。4.修改了一些细节
