@@ -71,9 +71,8 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
 
 1. 下载发布版本
    
-   (1)从Release页面下载最新的exe文件
-   (2)从网盘下载
-
+  从Release页面下载最新的exe文件
+  
 3. 解压到任意目录
 
 4. 运行AnyToMarkdown***.exe文件
@@ -95,14 +94,20 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
 - Pillow
 
 - pywin32
+
+- 等等
   
   ## 文件下载地址
 
-- 1.本站：[MarkItDown_GUI_v0.1.1](https://github.com/yihufree/AnyToMarkdown/releases/download/AnyToMarkdown/AnyToMD_v0.1.1_250409.zip)
-
-- 2.网盘：[百度网盘](https://pan.baidu.com/s/1h8ji_CrOdrDyAIzr7yV3YQ) 提取码: 1234 。
+- 本站：[MarkItDown_GUI_v0.1.6](https://github.com/yihufree/AnyToMarkdown/releases/download/v0.1.6_260330/AnyToMD_v0.1.6_260330.exe)
   
   ## 更新
+
+-2026年3月31日：近来抽空对程序进行了一些调整。
+  - 一是了解了前期体积增大的原因（微软 MarkItDown 0.1.0 后的版本中引入了 magika ，而 magika 依赖了 onnxruntime 库，包含非常大的 C++ 动态链接库（约 150MB+）。另外打包时可能 涉及到了torch 、 scipy 、 sklearn 、 cv2 (OpenCV)、 PyQt5 等。）近期进行了调整和部分清除。
+  - 二是增加了对MHTML/HTM支持。、
+  - 三是转换质量有提升，尤其是PDF、HTML文档中的图片保留能力有了提升。
+  - 四是提供了一些转换选项，满足更加灵活的需求。
 
 - 近期发现使用原来的脚本和主程序打包后文件为361M，发现是markitdown及相关依赖中加入了大量额外的依赖模块，主要是：
   (1)深度学习框架 ：包含了torch、transformers、huggingface_hub等大型机器学习库
