@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 
-# AnyToMarkdown 文档转换工具
+# AnyToMarkdown （AnyToMD) 文档转换工具
 
 =======
 
@@ -14,7 +14,7 @@
 
 ## 项目简介
 
-MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它封装了微软的MarkItDown命令行工具以及其他一些工具库，提供了友好的用户界面，使得文档转换变得简单易用。
+AnyToMarkdown是一个基于Python和Tkinter开发的图形界面工具，它封装了微软的MarkItDown命令行工具以及其他一些工具库，提供了友好的用户界面，使得文档转换变得简单易用。
 
 ## 主要功能
 
