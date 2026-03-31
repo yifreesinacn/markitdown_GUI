@@ -103,12 +103,15 @@ MarkItDown GUI是一个基于Python和Tkinter开发的图形界面工具，它�
   
   ## 更新
 
--2026年3月31日：近来抽空对程序进行了一些调整。
-  - 一是了解了前期体积增大的原因（微软 MarkItDown 0.1.0 后的版本中引入了 magika ，而 magika 依赖了 onnxruntime 库，包含非常大的 C++ 动态链接库（约 150MB+）。另外打包时可能 涉及到了torch 、 scipy 、 sklearn 、 cv2 (OpenCV)、 PyQt5 等。）近期进行了调整和部分清除。
-  - 二是增加了对MHTML/HTM支持。、
+-2026年3月31日：
+抽空对程序进行了一些调整。
+  - 一是更多了解了前期体积增大的原因（微软 MarkItDown 0.1.0 后的版本中引入了 magika ，而 magika 依赖了 onnxruntime 库，包含非常大的 C++ 动态链接库（约 150MB+）。另外打包时可能 涉及到了torch 、 scipy 、 sklearn 、 cv2 (OpenCV)、 PyQt5 等。）近期进行了调整。
+  - 二是增加了对MHTML/HTM支持。
   - 三是转换质量有提升，尤其是PDF、HTML文档中的图片保留能力有了提升。
   - 四是提供了一些转换选项，满足更加灵活的需求。
+  - 现在的程序速度更快、支持的文档转换质量更高。
 
+2025年6月16日：
 - 近期发现使用原来的脚本和主程序打包后文件为361M，发现是markitdown及相关依赖中加入了大量额外的依赖模块，主要是：
   (1)深度学习框架 ：包含了torch、transformers、huggingface_hub等大型机器学习库
   (2)科学计算库 ：包含了更完整的numpy、scipy、pandas、matplotlib等科学计算生态
