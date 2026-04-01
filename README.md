@@ -1,5 +1,9 @@
 <<<<<<< HEAD
 
+# AnyToMarkdown （AnyToMD) 文档转换工具
+
+=======
+
 ## 项目简介
 
 AnyToMarkdown（AnyToMD）是一个基于Python和Tkinter开发的图形界面工具，它封装了微软的MarkItDown命令行工具以及其他一些工具库，提供了友好的用户界面，使得文档转换变得简单易用。
@@ -61,9 +65,9 @@ AnyToMarkdown（AnyToMD）是一个基于Python和Tkinter开发的图形界面�
    
   从Release页面下载最新的exe文件(或压缩包)
   
-3. （压缩包）解压到任意目录
+3. （如果是压缩包）解压到任意目录
 
-4. 运行AnyToMarkdown***.exe文件
+4. 运行 *.exe 可执行文件
 
 ### 详细文档
 
@@ -108,9 +112,10 @@ AnyToMarkdown（AnyToMD）是一个基于Python和Tkinter开发的图形界面�
   (3)图像处理库 ：包含了更多的PIL、opencv相关模块
   (4)云服务依赖 ：包含了azure、google.auth等云服务相关库
   因对以上内容不熟悉，请大家自行处理。（20250616）
+  
 - 上传了打包脚本文件AnyToMD_build.py，有兴趣的朋友可以放在同一目录，使用“ python AnyToMD_build.py "测试。我也只是学着玩，所以没有建立专门的依赖文件，直接使用打包文件打包，里面有具体的依赖名称。使用前先把微软的markitdown项目运行一下（https://github.com/microsoft/markitdown  可以下载到本地，使用pip install 'markitdown[all]'，不行的使用pip install markitdown[all），然后再打包。
 - 如果本应用基于的一些库没有大的变动，转换工具涉及的图片的插入问题没有得到彻底解决，这个程序近期可能也不会做大的更新
--  
+  
 - v0.1.1_250325 1.修正了一些小问题；2.有图片的doc、pdf文档，在目录内新建images文件夹，导出并链接原文档中图片，请勿删除；3.修改了一些细节。
 
 - v0.1.0_250323 1.修正了以前没有发现的问题，如doc文档不能转换等。2.对于有图片的doc文档，能在目录文件夹内建立图片目录，将原文档中图片导出。3.在配置框内对支持的文件类型进行说明。4.修改了一些细节
