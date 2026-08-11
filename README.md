@@ -125,3 +125,13 @@ AnyToMarkdown（AnyToMD）是一个基于Python和Tkinter开发的图形界面�
 - v1.0    2025年3月5日第一次发布第一个版本，版本号为1.0 （当时微软在github.com发布的markitdown版本为v0.0.2a1，在pypi发布的版本好像是v0.0.1a5）
   
   > > > > > > > 240727e928bd969ba73331fb428c70d7d074906a
+---
+爱心打赏
+
+☕ 如果你开心，欢迎送爱心请作者喝杯咖啡，让我更有动力去创造！
+
+<p align="center">
+  <img src="https://github.com/yihufree/XueYuTTS/blob/main/images/wechatpay_203903.png" alt="爱心 微信赞赏码" width="240">
+</p>
+
+---
