@@ -1,137 +1,103 @@
-<<<<<<< HEAD
+# AnyToMD
 
-# AnyToMarkdown （AnyToMD) 文档转换工具
+Windows 平台下的多格式文档转 Markdown 图形工具，基于 Python、Tkinter、MarkItDown 以及 Firecrawl AnyDoc / pdf-inspector 构建，目标是让常见文档在图形界面中完成可控、可验证、可预览的 Markdown 转换。
 
-=======
+## 项目目标
 
-## 项目简介
+- 面向 Windows 用户提供可直接操作的桌面式转换工具
+- 支持单文件与批量转换
+- 支持多种转换策略，以兼顾内容提取、图文混排与版式保真
+- 优先保证转换效果与稳定性，而不是为统一流程牺牲结果
 
-AnyToMarkdown（AnyToMD）是一个基于Python和Tkinter开发的图形界面工具，它封装了微软的MarkItDown命令行工具以及其他一些工具库，提供了友好的用户界面，使得文档转换变得简单易用。
+## 当前定位
 
-## 主要功能
+- 当前版本：v0.1.7（版本日期 20260902）
+- 平台：Windows
+- 语言：Python
+- 图形框架：Tkinter / customtkinter / ttk
+- 打包工具：PyInstaller（打包脚本统一以 `sys.executable -m PyInstaller` 执行，避免本机多套 Python 环境混用导致依赖清单错位）
+- 主程序：`AnyToMD_main.py`（**文件名固定不变**；项目版本号统一由源码内 `APP_VERSION` / `APP_VERSION_DATE` 常量控制，不再随版本号改名）
+- 打包脚本：`AnyToMD_build.py`（唯一打包入口；生成的 EXE 名为 `AnyToMD_v{APP_VERSION}_{打包当日YYYYMMDD}.exe`）
+- 体积审计脚本：`build_size_audit.py`
+- 回归脚本：`regression_smoke.py`
 
-- **单文件转换**
-  
-  - 支持多种文档格式转换为Markdown
-  - 实时预览转换结果
-  - 可自定义输出目录
-  - 支持保留原始格式
+## 主要能力
 
-- **批量转换**
-  
-  - 支持多文件同时转换
-  - 支持文件夹导入
-  - 批量转换进度显示
-  - 转换结果统计
+- 支持 PDF、Word、Excel、PPT、HTML、HTM、MHTML 等多类文档转换（含旧版 Office 格式 .doc / .xls / .ppt；其中 .xls/.ppt 兜底依赖 AnyDoc 引擎）
+- 支持单文件转换与批量转换
+- 支持转换后 Markdown 预览
+- 支持“文档输出模式”与“图片输出策略”组合控制
+- 支持图片嵌入、图片落地、OCR 等扩展能力
+- 支持五种文档输出模式：智能转换（图文并存）、保持版式（页面转图片）、保留图像、保留文字、保留文字（含 OCR）
+- 浏览器导出的书签 HTML（Netscape 格式）走专用解析路径，保留文件夹层级、备注与链接
 
-- **格式支持**
-  
-  - PDF文档 (.pdf)
-  - Word文档 (.docx)
-  - Excel文档 (.xlsx)
-  - PowerPoint文档 (.pptx)
-  - 图片文件 (.png, .jpg, .jpeg)
-  - 音频文件 (.mp3, .wav)
-  - HTML文件 (.html, MHTML, HTM)
-  - 文本文件 (.csv, .json, .xml)
-  - 压缩文件 (.zip)
+## 增强引擎（2026-09-01 新增）
 
-## 技术特点
+- **AnyDoc 兜底引擎**（Firecrawl AnyDoc，纯 Rust）：对 Office 文档（DOC/DOCX/XLS/XLSX/PPT/PPTX）在其他转换方法均失败时自动启用，保留标题层级与表格结构
+- **pdf-inspector 引擎**（Firecrawl pdf-inspector，纯 Rust）：纯文本型 PDF 的智能识别（detect_pdf）与高质量 Markdown 输出；设置页新增「PDF 引擎策略」下拉：自动(默认) / 图文混排优先 / pdf-inspector优先（仅作用于智能转换模式，保持版式与扫描件 OCR 路径不变）
 
-- 使用Python 3.13+开发
-- 基于Tkinter构建GUI界面
-- 集成微软MarkItDown工具
-- 多线程处理保证界面响应
-- 支持配置持久化
+## 当前稳定性结论
 
-### 创建环境
+- PDF 当前已形成专用图文混排转换路径，优先保证图文混合与相对位置保留；pdf-inspector 作为纯文本型 PDF 的补充引擎（默认自动模式，仅 text_based 触发）
+- Word 当前整体转换效果较稳定；AnyDoc 作为 Office 转换的最终兜底
+- HTML / HTM / MHTML 已补充图文混排与书签导出专用处理；书签文件采用 HTMLParser 事件流 + DL 栈结构化解析（不依赖 DOM 树容错，完整还原全部文件夹与可点击链接，避免 markitdown 0.1.7 对深层 HTML 的纯文本回退），回归与真实 Chrome 导出文件验证通过
+- 工程整体可编译、可运行，当前更应优先做验证补强而不是频繁改动主流程
 
-- Windows 10版本
-- Python 3.13版本
-- 8GB内存
-- 500MB可用磁盘空间
+## 快速开始
 
-### 运行环境
+### 方式一：直接运行 Python 主程序
 
-- Windows 10或更高版本
-- Python 3.10或更高版本
-  <<<<<<< HEAD
-- 4GB以上内存
-- 500MB可用磁盘空间
+```bash
+python .\AnyToMD_main.py
+```
 
-### 安装使用
+### 方式二：运行已打包程序
 
-1. 下载发布版本
-   
-  从Release页面下载最新的exe文件(或压缩包)
-  
-3. （如果是压缩包）解压到任意目录
+- 可执行文件位于 `dist/AnyToMD_v0.1.7_20260902.exe`（重新打包后按打包当日日期生成）
 
-4. 运行 *.exe 可执行文件
+### 方式三：重新打包
 
-### 详细文档
+```bash
+python .\AnyToMD_build.py
+```
 
-- [安装说明](docs/installation.md)
-- [使用教程](docs/usage.md)
-- [开发指南](docs/development.md)
+> 打包注意：请在**与依赖安装完全相同的单一 Python 环境**中运行。脚本内部已统一以 `sys.executable -m PyInstaller` 执行打包，从机制上避免“依赖收集解释器与 PyInstaller 解释器不一致”的问题；若本机装有多个 Python 版本或无关的 torch/torchvision/pandas 等大库，建议使用干净的虚拟环境打包，以免分析阶段加载无关二进制。
 
-### 依赖库：
+## 使用说明
 
-- markitdown
+- 简要使用指南见 [docs/使用指南.md](docs/使用指南.md)
+- 审核结论与注意事项见 [docs/审核报告与注意事项.md](docs/审核报告与注意事项.md)
+- 项目结构图清单见 [docs/项目结构图清单.md](docs/项目结构图清单.md)
 
-- python-docx
+## 仓库建议文档
 
-- pdfminer.six
+- 贡献规范：[CONTRIBUTING.md](CONTRIBUTING.md)
+- 安全说明：[SECURITY.md](SECURITY.md)
+- 变更记录：[CHANGELOG.md](CHANGELOG.md)
 
-- Pillow
+## 已知重点注意事项
 
-- pywin32
+- PDF 相关转换代码目前视为冻结区，未经明确批准不建议改动
+- 书签处理模块（Chrome/Netscape 书签 HTML 解析与渲染）自 2026-09-02 起为逻辑锁定区，与 PDF 冻结区同等待遇：未经专门批准禁止修改（模块内已置根因与思路注释）
+- Word / PPT 的部分“保持版式”能力依赖本机 Office 与 COM 环境
+- HTML / HTM / MHTML 的“保持版式”能力依赖 Edge 或 Chrome 无头打印能力
+- 浏览器导出的书签 HTML 已有专用转换分支（HTMLParser 事件流 + DL 栈，完整保留文件夹层级与可点击链接；解析失败自动以 HTML 内嵌形式兜底），仍建议用真实样本复核
+- OCR 模式依赖 Tesseract 安装与对应语言包
+- 文件选择框已包含旧版 .xls / .ppt 类型（其转换兜底依赖 AnyDoc 引擎；未安装 AnyDoc 时功能检查会提示“不完全支持”）
+- 打包体积控制说明：onnxruntime 仅收集运行所需原生二进制（tools / transformers / datasets 等已排除）；AnyDoc / pdf-inspector 的原生 .pyd 由打包脚本按实际安装位置收集，避免换机后“未安装”误报
+- “图片输出策略”并不是对所有格式、所有模式都完全等价生效
+- AnyDoc / pdf-inspector 均为可选增强引擎：未安装时自动回退到原有转换链路，不影响任何现有功能
+- 设置页「检查功能完整性」可查看 AnyDoc / pdf-inspector 的安装状态与功能完整性
 
-- 等等
-  
-  ## 文件下载地址
+## 回归验证
 
-- 本站：[ AnyToMD_v0.1.6 ](https://github.com/yihufree/AnyToMarkdown/releases/download/v0.1.6_260330/AnyToMD_v0.1.6_260330.exe)
+```bash
+python -m py_compile .\AnyToMD_main.py .\AnyToMD_build.py .\regression_smoke.py
+python .\regression_smoke.py
+```
 
-  目前V0.1.6版本的源码还没有完全整理好，先下载EXE程序试用，暂时不要下载源码。
-  
-  ## 更新
+> 说明：回归中包含真实样本级校验（PDF/Word/PPT/HTML/MHTML 各输出模式、书签链接保留等），部分用例结果依赖本机实际引擎能力（如无 EXIF 元数据的纯图片经 MarkItDown 可能返回空输出），请结合本机环境判断。
 
--2026年3月31日：
-抽空对程序进行了一些调整。
-  - 一是更多了解了前期体积增大的原因（微软 MarkItDown 0.1.0 后的版本中引入了 magika ，而 magika 依赖了 onnxruntime 库，包含非常大的 C++ 动态链接库（约 150MB+）。另外打包时可能 涉及到了torch 、 scipy 、 sklearn 、 cv2 (OpenCV)、 PyQt5 等。）近期进行了调整。
-  - 二是增加了对MHTML/HTM支持。
-  - 三是转换质量有提升，尤其是PDF、HTML文档中的图片保留能力有了提升。
-  - 四是提供了一些转换选项，满足更加灵活的需求。
-  - 现在的程序速度更快、支持的文档转换质量更高。
+## 许可证
 
-2025年6月16日：
-- 近期发现使用原来的脚本和主程序打包后文件为361M，发现是markitdown及相关依赖中加入了大量额外的依赖模块，主要是：
-  (1)深度学习框架 ：包含了torch、transformers、huggingface_hub等大型机器学习库
-  (2)科学计算库 ：包含了更完整的numpy、scipy、pandas、matplotlib等科学计算生态
-  (3)图像处理库 ：包含了更多的PIL、opencv相关模块
-  (4)云服务依赖 ：包含了azure、google.auth等云服务相关库
-  因对以上内容不熟悉，请大家自行处理。（20250616）
-  
-- 上传了打包脚本文件AnyToMD_build.py，有兴趣的朋友可以放在同一目录，使用“ python AnyToMD_build.py "测试。我也只是学着玩，所以没有建立专门的依赖文件，直接使用打包文件打包，里面有具体的依赖名称。使用前先把微软的markitdown项目运行一下（https://github.com/microsoft/markitdown  可以下载到本地，使用pip install 'markitdown[all]'，不行的使用pip install markitdown[all），然后再打包。
-- 如果本应用基于的一些库没有大的变动，转换工具涉及的图片的插入问题没有得到彻底解决，这个程序近期可能也不会做大的更新
-  
-- v0.1.1_250325 1.修正了一些小问题；2.有图片的doc、pdf文档，在目录内新建images文件夹，导出并链接原文档中图片，请勿删除；3.修改了一些细节。
-
-- v0.1.0_250323 1.修正了以前没有发现的问题，如doc文档不能转换等。2.对于有图片的doc文档，能在目录文件夹内建立图片目录，将原文档中图片导出。3.在配置框内对支持的文件类型进行说明。4.修改了一些细节
-
-- v0.1.0a1    2025年3月11日根据微软发布的新版本进行修改，微软版本为发0.1.0a1。其他无大的变动。目前存在的问题：一是部分大文件转换会失败；二是部分图形图像方面还存在问题，打包时有提示；三是后续考虑增加英文界面，方便更多的人使用。
-
-- v1.0    2025年3月5日第一次发布第一个版本，版本号为1.0 （当时微软在github.com发布的markitdown版本为v0.0.2a1，在pypi发布的版本好像是v0.0.1a5）
-  
-  > > > > > > > 240727e928bd969ba73331fb428c70d7d074906a
----
-爱心打赏
-
-☕ 如果你开心，欢迎送爱心请作者喝杯咖啡，让我更有动力去创造！
-
-<p align="center">
-  <img src="https://github.com/yihufree/XueYuTTS/blob/main/images/wechatpay_203903.png" alt="爱心 微信赞赏码" width="240">
-</p>
-
----
+- 当前仓库尚未确定最终开源许可证，正式公开前请先补充许可证文件与授权说明
