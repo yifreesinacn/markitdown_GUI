@@ -98,6 +98,17 @@ python .\regression_smoke.py
 
 > 说明：回归中包含真实样本级校验（PDF/Word/PPT/HTML/MHTML 各输出模式、书签链接保留等），部分用例结果依赖本机实际引擎能力（如无 EXIF 元数据的纯图片经 MarkItDown 可能返回空输出），请结合本机环境判断。
 
+---
+
+## 爱心打赏
+
+☕ 如果你开心，欢迎送爱心请作者喝杯咖啡，让我更有动力去创造！
+<p align="center">
+  <img src="https://github.com/yihufree/XueYuTTS/blob/main/images/wechatpay_203903.png" alt="爱心 微信赞赏码" width="240">
+</p>
+
+---
+
 ## 许可证
 
 - 当前仓库尚未确定最终开源许可证，正式公开前请先补充许可证文件与授权说明
